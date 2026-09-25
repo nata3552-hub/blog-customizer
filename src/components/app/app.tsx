@@ -1,4 +1,4 @@
-import { contentWidthArr, defaultArticleState } from '@/constants/articleProps.ts';
+import { defaultArticleState } from '@/constants/articleProps.ts';
 import { clsx } from 'clsx';
 import { useState } from 'react';
 
@@ -24,10 +24,6 @@ export const App = (): React.JSX.Element => {
           '--font-size': articleState.fontSizeOption.value,
           '--font-color': articleState.fontColor.value,
           '--container-width': articleState.contentWidth.value,
-          '--image-width':
-            articleState.contentWidth.value === contentWidthArr[0].value
-              ? '1600px'
-              : articleState.contentWidth.value,
           '--bg-color': articleState.backgroundColor.value,
         } as CSSProperties
       }

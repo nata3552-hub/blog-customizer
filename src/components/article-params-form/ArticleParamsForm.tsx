@@ -28,11 +28,11 @@ export const ArticleParamsForm = ({
   onApply,
 }: ArticleParamsFormProps): React.JSX.Element => {
   const [formState, setFormState] = useState<ArticleStateType>(defaultArticleState);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const panelRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    if (!isOpen) return;
+    if (!isSidebarOpen) return;
 
     const handleOutsideClick = (event: MouseEvent): void => {
       const panel = panelRef.current;
@@ -43,7 +43,7 @@ export const ArticleParamsForm = ({
         return;
       }
 
-      setIsOpen(false);
+      setIsSidebarOpen(false);
     };
 
     document.addEventListener('mousedown', handleOutsideClick);
@@ -51,10 +51,10 @@ export const ArticleParamsForm = ({
     return (): void => {
       document.removeEventListener('mousedown', handleOutsideClick);
     };
-  }, [isOpen]);
+  }, [isSidebarOpen]);
 
   const handleToggle = (): void => {
-    setIsOpen((previousIsOpen) => !previousIsOpen);
+    setIsSidebarOpen((previousIsSidebarOpen) => !previousIsSidebarOpen);
   };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
@@ -70,10 +70,10 @@ export const ArticleParamsForm = ({
 
   return (
     <>
-      <ArrowButton isOpen={isOpen} onClick={handleToggle} />
+      <ArrowButton isOpen={isSidebarOpen} onClick={handleToggle} />
       <aside
         ref={panelRef}
-        className={clsx(styles.container, { [styles.container_open]: isOpen })}
+        className={clsx(styles.container, { [styles.container_open]: isSidebarOpen })}
       >
         <form className={styles.form} onSubmit={handleSubmit} onReset={handleReset}>
           <Text as="h2" size={31} weight={800} uppercase>
