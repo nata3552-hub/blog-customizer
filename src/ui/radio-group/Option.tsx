@@ -43,6 +43,7 @@ export const Option = (props: OptionProps): React.JSX.Element => {
         name={groupName}
         id={inputId}
         value={value}
+        checked={isChecked}
         onChange={handleChange}
         tabIndex={-1}
       />

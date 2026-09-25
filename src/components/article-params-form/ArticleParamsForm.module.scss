@@ -3,7 +3,7 @@
 	left: 0;
 	width: 616px;
 	height: 100%;
-	overflow: scroll;
+	overflow: hidden auto;
 	transform: translate(-616px);
 	transition: transform 0.5s ease;
 }
@@ -16,8 +16,9 @@
 	display: flex;
 	flex-shrink: 0;
 	flex-direction: column;
+	row-gap: 50px;
 	box-sizing: border-box;
-	width: 616px;
+	width: 100%;
 	height: auto;
 	min-height: 100%;
 	padding: 50px 31px;
@@ -25,8 +26,17 @@
 	border-right: 1px solid #000;
 }
 
+.separator > div {
+	background: #d7d7d7;
+}
+
 .bottomContainer {
 	display: flex;
 	justify-content: space-between;
 	margin-top: auto;
+}
+
+.bottomContainer > button {
+	width: 180px;
+	height: 48px;
 }
